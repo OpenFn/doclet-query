@@ -1,0 +1,19 @@
+{
+  "name": "doclet-query",
+  "version": "0.0.1",
+  "description": "JSDoc Metadata Query Tools",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Open Function Group",
+  "license": "LGPLv3",
+  "devDependencies": {
+    "chai": "3.5.0",
+    "mocha": "2.5.3"
+  },
+  "dependencies": {
+    "lodash": "^4.13.1"
+  },
+  { "engines" : { "node" : "~6.1.0" } }
+}

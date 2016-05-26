@@ -1,0 +1,3148 @@
+[
+    {
+        "comment": "/** @module Adaptor */",
+        "meta": {
+            "range": [
+                147,
+                169
+            ],
+            "filename": "Adaptor.js",
+            "lineno": 5,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {}
+        },
+        "kind": "module",
+        "name": "Adaptor",
+        "longname": "module:Adaptor"
+    },
+    {
+        "comment": "/**\n * @typedef {Object} State\n * @property {object} data JSON Data.\n * @property {Array<Reference>} references History of all previous operations.\n */",
+        "meta": {
+            "range": [
+                171,
+                322
+            ],
+            "filename": "Adaptor.js",
+            "lineno": 7,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {}
+        },
+        "kind": "typedef",
+        "name": "State",
+        "type": {
+            "names": [
+                "Object"
+            ]
+        },
+        "properties": [
+            {
+                "type": {
+                    "names": [
+                        "object"
+                    ]
+                },
+                "description": "JSON Data.",
+                "name": "data"
+            },
+            {
+                "type": {
+                    "names": [
+                        "Array.<Reference>"
+                    ]
+                },
+                "description": "History of all previous operations.",
+                "name": "references"
+            }
+        ],
+        "longname": "module:Adaptor~State",
+        "scope": "inner",
+        "memberof": "module:Adaptor"
+    },
+    {
+        "comment": "/**\n * @typedef {Function} Operation\n * @param {State} state\n */",
+        "meta": {
+            "range": [
+                324,
+                388
+            ],
+            "filename": "Adaptor.js",
+            "lineno": 13,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {}
+        },
+        "kind": "typedef",
+        "name": "Operation",
+        "type": {
+            "names": [
+                "function"
+            ]
+        },
+        "params": [
+            {
+                "type": {
+                    "names": [
+                        "State"
+                    ]
+                },
+                "name": "state"
+            }
+        ],
+        "longname": "module:Adaptor~Operation",
+        "scope": "inner",
+        "memberof": "module:Adaptor"
+    },
+    {
+        "comment": "/**\n * Outputs basic information about an sObject to `STDOUT`.\n * @constructor\n * @param {String} sObject - API name of the sObject.\n * @param {State} state - Runtime state.\n * @returns {Operation}\n */",
+        "meta": {
+            "range": [
+                592,
+                949
+            ],
+            "filename": "Adaptor.js",
+            "lineno": 25,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000017",
+                "name": "exports.describe",
+                "type": "VariableDeclaration"
+            }
+        },
+        "description": "Outputs basic information about an sObject to `STDOUT`.",
+        "kind": "class",
+        "params": [
+            {
+                "type": {
+                    "names": [
+                        "String"
+                    ]
+                },
+                "description": "API name of the sObject.",
+                "name": "sObject"
+            },
+            {
+                "type": {
+                    "names": [
+                        "State"
+                    ]
+                },
+                "description": "Runtime state.",
+                "name": "state"
+            }
+        ],
+        "returns": [
+            {
+                "type": {
+                    "names": [
+                        "Operation"
+                    ]
+                }
+            }
+        ],
+        "name": "describe",
+        "longname": "module:Adaptor.describe",
+        "memberof": "module:Adaptor",
+        "scope": "static"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                605,
+                948
+            ],
+            "filename": "Adaptor.js",
+            "lineno": 25,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000019",
+                "name": "describe",
+                "type": "CallExpression",
+                "value": ""
+            }
+        },
+        "undocumented": true,
+        "name": "describe",
+        "longname": "module:Adaptor~describe",
+        "kind": "constant",
+        "scope": "inner",
+        "memberof": "module:Adaptor"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                656,
+                666
+            ],
+            "filename": "Adaptor.js",
+            "lineno": 26,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000030",
+                "name": "connection",
+                "type": "Identifier",
+                "value": "connection"
+            }
+        },
+        "undocumented": true,
+        "name": "connection",
+        "longname": "module:Adaptor~connection",
+        "kind": "member",
+        "scope": "inner",
+        "memberof": "module:Adaptor"
+    },
+    {
+        "comment": "/**\n * Create a new object.\n * @function\n * @param {String} sObject - API name of the sObject.\n * @param {Object} attrs - Field attributes for the new object.\n * @param {State} state - Runtime state.\n * @returns {Operation}\n */",
+        "meta": {
+            "range": [
+                1179,
+                1619
+            ],
+            "filename": "Adaptor.js",
+            "lineno": 50,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000086",
+                "name": "exports.create",
+                "type": "VariableDeclaration"
+            }
+        },
+        "description": "Create a new object.",
+        "kind": "function",
+        "params": [
+            {
+                "type": {
+                    "names": [
+                        "String"
+                    ]
+                },
+                "description": "API name of the sObject.",
+                "name": "sObject"
+            },
+            {
+                "type": {
+                    "names": [
+                        "Object"
+                    ]
+                },
+                "description": "Field attributes for the new object.",
+                "name": "attrs"
+            },
+            {
+                "type": {
+                    "names": [
+                        "State"
+                    ]
+                },
+                "description": "Runtime state.",
+                "name": "state"
+            }
+        ],
+        "returns": [
+            {
+                "type": {
+                    "names": [
+                        "Operation"
+                    ]
+                }
+            }
+        ],
+        "name": "create",
+        "longname": "module:Adaptor.create",
+        "memberof": "module:Adaptor",
+        "scope": "static"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                1192,
+                1618
+            ],
+            "filename": "Adaptor.js",
+            "lineno": 50,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000088",
+                "name": "create",
+                "type": "CallExpression",
+                "value": ""
+            }
+        },
+        "undocumented": true,
+        "name": "create",
+        "longname": "module:Adaptor~create",
+        "kind": "constant",
+        "scope": "inner",
+        "memberof": "module:Adaptor"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                1248,
+                1258
+            ],
+            "filename": "Adaptor.js",
+            "lineno": 51,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000100",
+                "name": "connection",
+                "type": "Identifier",
+                "value": "connection"
+            }
+        },
+        "undocumented": true,
+        "name": "connection",
+        "longname": "module:Adaptor~connection",
+        "kind": "member",
+        "scope": "inner",
+        "memberof": "module:Adaptor"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                1260,
+                1270
+            ],
+            "filename": "Adaptor.js",
+            "lineno": 51,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000102",
+                "name": "references",
+                "type": "Identifier",
+                "value": "references"
+            }
+        },
+        "undocumented": true,
+        "name": "references",
+        "longname": "module:Adaptor~references",
+        "kind": "member",
+        "scope": "inner",
+        "memberof": "module:Adaptor"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                1289,
+                1332
+            ],
+            "filename": "Adaptor.js",
+            "lineno": 52,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000106",
+                "name": "finalAttrs",
+                "type": "CallExpression",
+                "value": ""
+            }
+        },
+        "undocumented": true,
+        "name": "finalAttrs",
+        "longname": "<anonymous>~finalAttrs",
+        "kind": "constant",
+        "memberof": "<anonymous>",
+        "scope": "inner"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                1556,
+                1603
+            ],
+            "filename": "Adaptor.js",
+            "lineno": 59,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000151",
+                "name": "references",
+                "type": "ArrayExpression",
+                "value": "[\"recordResult\",\"\"]"
+            }
+        },
+        "undocumented": true,
+        "name": "references",
+        "longname": "module:Adaptor~references",
+        "kind": "member",
+        "scope": "inner",
+        "memberof": "module:Adaptor"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                1621,
+                2129
+            ],
+            "filename": "Adaptor.js",
+            "lineno": 65,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000158",
+                "name": "exports.upsert",
+                "type": "VariableDeclaration"
+            }
+        },
+        "undocumented": true,
+        "name": "upsert",
+        "longname": "module:Adaptor.upsert",
+        "kind": "constant",
+        "memberof": "module:Adaptor",
+        "scope": "static"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                1634,
+                2127
+            ],
+            "filename": "Adaptor.js",
+            "lineno": 65,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000160",
+                "name": "upsert",
+                "type": "CallExpression",
+                "value": ""
+            }
+        },
+        "undocumented": true,
+        "name": "upsert",
+        "longname": "module:Adaptor~upsert",
+        "kind": "constant",
+        "scope": "inner",
+        "memberof": "module:Adaptor"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                1702,
+                1712
+            ],
+            "filename": "Adaptor.js",
+            "lineno": 66,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000173",
+                "name": "connection",
+                "type": "Identifier",
+                "value": "connection"
+            }
+        },
+        "undocumented": true,
+        "name": "connection",
+        "longname": "module:Adaptor~connection",
+        "kind": "member",
+        "scope": "inner",
+        "memberof": "module:Adaptor"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                1714,
+                1724
+            ],
+            "filename": "Adaptor.js",
+            "lineno": 66,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000175",
+                "name": "references",
+                "type": "Identifier",
+                "value": "references"
+            }
+        },
+        "undocumented": true,
+        "name": "references",
+        "longname": "module:Adaptor~references",
+        "kind": "member",
+        "scope": "inner",
+        "memberof": "module:Adaptor"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                1743,
+                1786
+            ],
+            "filename": "Adaptor.js",
+            "lineno": 67,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000179",
+                "name": "finalAttrs",
+                "type": "CallExpression",
+                "value": ""
+            }
+        },
+        "undocumented": true,
+        "name": "finalAttrs",
+        "longname": "<anonymous>~finalAttrs",
+        "kind": "constant",
+        "memberof": "<anonymous>",
+        "scope": "inner"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                2065,
+                2112
+            ],
+            "filename": "Adaptor.js",
+            "lineno": 76,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000227",
+                "name": "references",
+                "type": "ArrayExpression",
+                "value": "[\"recordResult\",\"\"]"
+            }
+        },
+        "undocumented": true,
+        "name": "references",
+        "longname": "module:Adaptor~references",
+        "kind": "member",
+        "scope": "inner",
+        "memberof": "module:Adaptor"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                2129,
+                2234
+            ],
+            "filename": "Adaptor.js",
+            "lineno": 82,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000234",
+                "name": "exports.reference",
+                "type": "VariableDeclaration"
+            }
+        },
+        "undocumented": true,
+        "name": "reference",
+        "longname": "module:Adaptor.reference",
+        "kind": "constant",
+        "memberof": "module:Adaptor",
+        "scope": "static"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                2142,
+                2231
+            ],
+            "filename": "Adaptor.js",
+            "lineno": 82,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000236",
+                "name": "reference",
+                "type": "CallExpression",
+                "value": ""
+            }
+        },
+        "undocumented": true,
+        "name": "reference",
+        "longname": "module:Adaptor~reference",
+        "kind": "constant",
+        "scope": "inner",
+        "memberof": "module:Adaptor"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                2180,
+                2190
+            ],
+            "filename": "Adaptor.js",
+            "lineno": 82,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000243",
+                "name": "references",
+                "type": "Identifier",
+                "value": "references"
+            }
+        },
+        "undocumented": true,
+        "name": "references",
+        "longname": "module:Adaptor~references",
+        "kind": "member",
+        "scope": "inner",
+        "memberof": "module:Adaptor"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                2234,
+                2471
+            ],
+            "filename": "Adaptor.js",
+            "lineno": 87,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000252",
+                "name": "createConnection",
+                "type": "FunctionDeclaration",
+                "paramnames": [
+                    "state"
+                ]
+            },
+            "vars": {
+                "undefined": null
+            }
+        },
+        "undocumented": true,
+        "name": "createConnection",
+        "longname": "module:Adaptor~createConnection",
+        "kind": "function",
+        "scope": "inner",
+        "memberof": "module:Adaptor",
+        "params": []
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                2279,
+                2287
+            ],
+            "filename": "Adaptor.js",
+            "lineno": 88,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000259",
+                "name": "loginUrl",
+                "type": "Identifier",
+                "value": "loginUrl"
+            }
+        },
+        "undocumented": true,
+        "name": "loginUrl",
+        "longname": "module:Adaptor~loginUrl",
+        "kind": "member",
+        "scope": "inner",
+        "memberof": "module:Adaptor"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                2419,
+                2467
+            ],
+            "filename": "Adaptor.js",
+            "lineno": 94,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000276",
+                "name": "connection",
+                "type": "NewExpression",
+                "value": ""
+            }
+        },
+        "undocumented": true,
+        "name": "connection",
+        "longname": "module:Adaptor~connection",
+        "kind": "member",
+        "scope": "inner",
+        "memberof": "module:Adaptor"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                2456,
+                2464
+            ],
+            "filename": "Adaptor.js",
+            "lineno": 94,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000282",
+                "name": "loginUrl",
+                "type": "Identifier",
+                "value": "loginUrl"
+            }
+        },
+        "undocumented": true,
+        "name": "loginUrl",
+        "longname": "module:Adaptor~loginUrl",
+        "kind": "member",
+        "scope": "inner",
+        "memberof": "module:Adaptor"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                2473,
+                2737
+            ],
+            "filename": "Adaptor.js",
+            "lineno": 97,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000284",
+                "name": "login",
+                "type": "FunctionDeclaration",
+                "paramnames": [
+                    "state"
+                ]
+            },
+            "vars": {
+                "undefined": null
+            }
+        },
+        "undocumented": true,
+        "name": "login",
+        "longname": "module:Adaptor~login",
+        "kind": "function",
+        "scope": "inner",
+        "memberof": "module:Adaptor",
+        "params": []
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                2507,
+                2515
+            ],
+            "filename": "Adaptor.js",
+            "lineno": 99,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000291",
+                "name": "username",
+                "type": "Identifier",
+                "value": "username"
+            }
+        },
+        "undocumented": true,
+        "name": "username",
+        "longname": "module:Adaptor~username",
+        "kind": "member",
+        "scope": "inner",
+        "memberof": "module:Adaptor"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                2517,
+                2525
+            ],
+            "filename": "Adaptor.js",
+            "lineno": 99,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000293",
+                "name": "password",
+                "type": "Identifier",
+                "value": "password"
+            }
+        },
+        "undocumented": true,
+        "name": "password",
+        "longname": "module:Adaptor~password",
+        "kind": "member",
+        "scope": "inner",
+        "memberof": "module:Adaptor"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                2527,
+                2540
+            ],
+            "filename": "Adaptor.js",
+            "lineno": 99,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000295",
+                "name": "securityToken",
+                "type": "Identifier",
+                "value": "securityToken"
+            }
+        },
+        "undocumented": true,
+        "name": "securityToken",
+        "longname": "module:Adaptor~securityToken",
+        "kind": "member",
+        "scope": "inner",
+        "memberof": "module:Adaptor"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                2572,
+                2582
+            ],
+            "filename": "Adaptor.js",
+            "lineno": 100,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000303",
+                "name": "connection",
+                "type": "Identifier",
+                "value": "connection"
+            }
+        },
+        "undocumented": true,
+        "name": "connection",
+        "longname": "module:Adaptor~connection",
+        "kind": "member",
+        "scope": "inner",
+        "memberof": "module:Adaptor"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                2739,
+                3239
+            ],
+            "filename": "Adaptor.js",
+            "lineno": 108,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000330",
+                "name": "exports.execute",
+                "type": "FunctionDeclaration",
+                "paramnames": [
+                    "operations"
+                ]
+            }
+        },
+        "undocumented": true,
+        "name": "execute",
+        "longname": "module:Adaptor.execute",
+        "kind": "function",
+        "memberof": "module:Adaptor",
+        "scope": "static"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                2746,
+                3239
+            ],
+            "filename": "Adaptor.js",
+            "lineno": 108,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000331",
+                "name": "execute",
+                "type": "FunctionDeclaration",
+                "paramnames": [
+                    "operations"
+                ]
+            },
+            "vars": {
+                "initialState": "module:Adaptor~execute~initialState",
+                "": null
+            }
+        },
+        "undocumented": true,
+        "name": "execute",
+        "longname": "module:Adaptor~execute",
+        "kind": "function",
+        "scope": "inner",
+        "memberof": "module:Adaptor",
+        "params": []
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                2789,
+                2967
+            ],
+            "filename": "Adaptor.js",
+            "lineno": 110,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000337",
+                "name": "initialState",
+                "type": "ObjectExpression",
+                "value": "{\"logger\":\"\",\"references\":\"\",\"data\":null,\"configuration\":\"\"}"
+            }
+        },
+        "undocumented": true,
+        "name": "initialState",
+        "longname": "module:Adaptor~execute~initialState",
+        "kind": "constant",
+        "memberof": "module:Adaptor~execute",
+        "scope": "inner"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                2810,
+                2904
+            ],
+            "filename": "Adaptor.js",
+            "lineno": 111,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000340",
+                "name": "logger",
+                "type": "ObjectExpression",
+                "value": "{\"info\":\"\",\"debug\":\"\"}"
+            }
+        },
+        "undocumented": true,
+        "name": "logger",
+        "longname": "module:Adaptor~execute~initialState.logger",
+        "kind": "member",
+        "memberof": "module:Adaptor~execute~initialState",
+        "scope": "static"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                2826,
+                2858
+            ],
+            "filename": "Adaptor.js",
+            "lineno": 112,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000342",
+                "name": "info",
+                "type": "CallExpression",
+                "value": ""
+            }
+        },
+        "undocumented": true,
+        "name": "info",
+        "longname": "module:Adaptor~execute~initialState.logger.info",
+        "kind": "member",
+        "memberof": "module:Adaptor~execute~initialState.logger",
+        "scope": "static"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                2866,
+                2898
+            ],
+            "filename": "Adaptor.js",
+            "lineno": 113,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000350",
+                "name": "debug",
+                "type": "CallExpression",
+                "value": ""
+            }
+        },
+        "undocumented": true,
+        "name": "debug",
+        "longname": "module:Adaptor~execute~initialState.logger.debug",
+        "kind": "member",
+        "memberof": "module:Adaptor~execute~initialState.logger",
+        "scope": "static"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                2910,
+                2924
+            ],
+            "filename": "Adaptor.js",
+            "lineno": 115,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000358",
+                "name": "references",
+                "type": "ArrayExpression",
+                "value": "[]"
+            }
+        },
+        "undocumented": true,
+        "name": "references",
+        "longname": "module:Adaptor~execute~initialState.references",
+        "kind": "member",
+        "memberof": "module:Adaptor~execute~initialState",
+        "scope": "static"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                2930,
+                2940
+            ],
+            "filename": "Adaptor.js",
+            "lineno": 116,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000360",
+                "name": "data",
+                "type": "Literal",
+                "value": null
+            }
+        },
+        "undocumented": true,
+        "name": "data",
+        "longname": "module:Adaptor~execute~initialState.data",
+        "kind": "member",
+        "memberof": "module:Adaptor~execute~initialState",
+        "scope": "static"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                2946,
+                2963
+            ],
+            "filename": "Adaptor.js",
+            "lineno": 117,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000362",
+                "name": "configuration",
+                "type": "ObjectExpression",
+                "value": "{}"
+            }
+        },
+        "undocumented": true,
+        "name": "configuration",
+        "longname": "module:Adaptor~execute~initialState.configuration",
+        "kind": "member",
+        "memberof": "module:Adaptor~execute~initialState",
+        "scope": "static"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                3251,
+                3327
+            ],
+            "filename": "Adaptor.js",
+            "lineno": 135,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000383",
+                "name": "injectState",
+                "type": "FunctionDeclaration",
+                "paramnames": [
+                    "state"
+                ]
+            },
+            "vars": {
+                "": null
+            }
+        },
+        "undocumented": true,
+        "name": "injectState",
+        "longname": "module:Adaptor~injectState",
+        "kind": "function",
+        "scope": "inner",
+        "memberof": "module:Adaptor",
+        "params": []
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                3329,
+                3399
+            ],
+            "filename": "Adaptor.js",
+            "lineno": 141,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000392",
+                "name": "exports.steps",
+                "type": "FunctionDeclaration",
+                "paramnames": [
+                    "operations"
+                ]
+            }
+        },
+        "undocumented": true,
+        "name": "steps",
+        "longname": "module:Adaptor.steps",
+        "kind": "function",
+        "memberof": "module:Adaptor",
+        "scope": "static"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                3336,
+                3399
+            ],
+            "filename": "Adaptor.js",
+            "lineno": 141,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000393",
+                "name": "steps",
+                "type": "FunctionDeclaration",
+                "paramnames": [
+                    "operations"
+                ]
+            }
+        },
+        "undocumented": true,
+        "name": "steps",
+        "longname": "module:Adaptor~steps",
+        "kind": "function",
+        "scope": "inner",
+        "memberof": "module:Adaptor",
+        "params": []
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                3401,
+                3556
+            ],
+            "filename": "Adaptor.js",
+            "lineno": 145,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000402",
+                "name": "expandReferences",
+                "type": "FunctionDeclaration",
+                "paramnames": [
+                    "state",
+                    "attrs"
+                ]
+            },
+            "vars": {
+                "": null
+            }
+        },
+        "undocumented": true,
+        "name": "expandReferences",
+        "longname": "module:Adaptor~expandReferences",
+        "kind": "function",
+        "scope": "inner",
+        "memberof": "module:Adaptor",
+        "params": []
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                3567,
+                3573
+            ],
+            "filename": "Adaptor.js",
+            "lineno": 151,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000426",
+                "name": "exports.lookup",
+                "type": "Identifier"
+            }
+        },
+        "undocumented": true,
+        "name": "lookup",
+        "longname": "module:Adaptor.lookup",
+        "kind": "member",
+        "memberof": "module:Adaptor",
+        "scope": "static"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                3575,
+                3587
+            ],
+            "filename": "Adaptor.js",
+            "lineno": 151,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000428",
+                "name": "exports.relationship",
+                "type": "Identifier"
+            }
+        },
+        "undocumented": true,
+        "name": "relationship",
+        "longname": "module:Adaptor.relationship",
+        "kind": "member",
+        "memberof": "module:Adaptor",
+        "scope": "static"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                3626,
+                3630
+            ],
+            "filename": "Adaptor.js",
+            "lineno": 154,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000432",
+                "name": "exports.each",
+                "type": "Identifier"
+            }
+        },
+        "undocumented": true,
+        "name": "each",
+        "longname": "module:Adaptor.each",
+        "kind": "member",
+        "memberof": "module:Adaptor",
+        "scope": "static"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                3632,
+                3636
+            ],
+            "filename": "Adaptor.js",
+            "lineno": 154,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000434",
+                "name": "exports.join",
+                "type": "Identifier"
+            }
+        },
+        "undocumented": true,
+        "name": "join",
+        "longname": "module:Adaptor.join",
+        "kind": "member",
+        "memberof": "module:Adaptor",
+        "scope": "static"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                3638,
+                3644
+            ],
+            "filename": "Adaptor.js",
+            "lineno": 154,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000436",
+                "name": "exports.fields",
+                "type": "Identifier"
+            }
+        },
+        "undocumented": true,
+        "name": "fields",
+        "longname": "module:Adaptor.fields",
+        "kind": "member",
+        "memberof": "module:Adaptor",
+        "scope": "static"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                3646,
+                3651
+            ],
+            "filename": "Adaptor.js",
+            "lineno": 154,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000438",
+                "name": "exports.field",
+                "type": "Identifier"
+            }
+        },
+        "undocumented": true,
+        "name": "field",
+        "longname": "module:Adaptor.field",
+        "kind": "member",
+        "memberof": "module:Adaptor",
+        "scope": "static"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                3653,
+                3659
+            ],
+            "filename": "Adaptor.js",
+            "lineno": 154,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000440",
+                "name": "exports.source",
+                "type": "Identifier"
+            }
+        },
+        "undocumented": true,
+        "name": "source",
+        "longname": "module:Adaptor.source",
+        "kind": "member",
+        "memberof": "module:Adaptor",
+        "scope": "static"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                3661,
+                3672
+            ],
+            "filename": "Adaptor.js",
+            "lineno": 154,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000442",
+                "name": "exports.sourceValue",
+                "type": "Identifier"
+            }
+        },
+        "undocumented": true,
+        "name": "sourceValue",
+        "longname": "module:Adaptor.sourceValue",
+        "kind": "member",
+        "memberof": "module:Adaptor",
+        "scope": "static"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                3674,
+                3677
+            ],
+            "filename": "Adaptor.js",
+            "lineno": 154,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000444",
+                "name": "exports.map",
+                "type": "Identifier"
+            }
+        },
+        "undocumented": true,
+        "name": "map",
+        "longname": "module:Adaptor.map",
+        "kind": "member",
+        "memberof": "module:Adaptor",
+        "scope": "static"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                3679,
+                3686
+            ],
+            "filename": "Adaptor.js",
+            "lineno": 154,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000446",
+                "name": "exports.combine",
+                "type": "Identifier"
+            }
+        },
+        "undocumented": true,
+        "name": "combine",
+        "longname": "module:Adaptor.combine",
+        "kind": "member",
+        "memberof": "module:Adaptor",
+        "scope": "static"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                3690,
+                3695
+            ],
+            "filename": "Adaptor.js",
+            "lineno": 155,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000448",
+                "name": "exports.merge",
+                "type": "Identifier"
+            }
+        },
+        "undocumented": true,
+        "name": "merge",
+        "longname": "module:Adaptor.merge",
+        "kind": "member",
+        "memberof": "module:Adaptor",
+        "scope": "static"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                3697,
+                3705
+            ],
+            "filename": "Adaptor.js",
+            "lineno": 155,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000450",
+                "name": "exports.dataPath",
+                "type": "Identifier"
+            }
+        },
+        "undocumented": true,
+        "name": "dataPath",
+        "longname": "module:Adaptor.dataPath",
+        "kind": "member",
+        "memberof": "module:Adaptor",
+        "scope": "static"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                3707,
+                3716
+            ],
+            "filename": "Adaptor.js",
+            "lineno": 155,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000452",
+                "name": "exports.dataValue",
+                "type": "Identifier"
+            }
+        },
+        "undocumented": true,
+        "name": "dataValue",
+        "longname": "module:Adaptor.dataValue",
+        "kind": "member",
+        "memberof": "module:Adaptor",
+        "scope": "static"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                3718,
+                3731
+            ],
+            "filename": "Adaptor.js",
+            "lineno": 155,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000454",
+                "name": "exports.referencePath",
+                "type": "Identifier"
+            }
+        },
+        "undocumented": true,
+        "name": "referencePath",
+        "longname": "module:Adaptor.referencePath",
+        "kind": "member",
+        "memberof": "module:Adaptor",
+        "scope": "static"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                3733,
+                3751
+            ],
+            "filename": "Adaptor.js",
+            "lineno": 155,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000456",
+                "name": "exports.lastReferenceValue",
+                "type": "Identifier"
+            }
+        },
+        "undocumented": true,
+        "name": "lastReferenceValue",
+        "longname": "module:Adaptor.lastReferenceValue",
+        "kind": "member",
+        "memberof": "module:Adaptor",
+        "scope": "static"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                3755,
+                3760
+            ],
+            "filename": "Adaptor.js",
+            "lineno": 156,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000458",
+                "name": "exports.index",
+                "type": "Identifier"
+            }
+        },
+        "undocumented": true,
+        "name": "index",
+        "longname": "module:Adaptor.index",
+        "kind": "member",
+        "memberof": "module:Adaptor",
+        "scope": "static"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                3762,
+                3766
+            ],
+            "filename": "Adaptor.js",
+            "lineno": 156,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000460",
+                "name": "exports.beta",
+                "type": "Identifier"
+            }
+        },
+        "undocumented": true,
+        "name": "beta",
+        "longname": "module:Adaptor.beta",
+        "kind": "member",
+        "memberof": "module:Adaptor",
+        "scope": "static"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                3768,
+                3775
+            ],
+            "filename": "Adaptor.js",
+            "lineno": 156,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000462",
+                "name": "exports.toArray",
+                "type": "Identifier"
+            }
+        },
+        "undocumented": true,
+        "name": "toArray",
+        "longname": "module:Adaptor.toArray",
+        "kind": "member",
+        "memberof": "module:Adaptor",
+        "scope": "static"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                3777,
+                3790
+            ],
+            "filename": "Adaptor.js",
+            "lineno": 156,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000464",
+                "name": "exports.arrayToString",
+                "type": "Identifier"
+            }
+        },
+        "undocumented": true,
+        "name": "arrayToString",
+        "longname": "module:Adaptor.arrayToString",
+        "kind": "member",
+        "memberof": "module:Adaptor",
+        "scope": "static"
+    },
+    {
+        "comment": "/** @module FakeAdaptor */",
+        "meta": {
+            "range": [
+                116,
+                142
+            ],
+            "filename": "FakeAdaptor.js",
+            "lineno": 4,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {}
+        },
+        "kind": "module",
+        "name": "FakeAdaptor",
+        "longname": "module:FakeAdaptor"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                144,
+                207
+            ],
+            "filename": "FakeAdaptor.js",
+            "lineno": 6,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000480",
+                "name": "steps",
+                "type": "FunctionDeclaration",
+                "paramnames": [
+                    "operations"
+                ]
+            }
+        },
+        "undocumented": true,
+        "name": "steps",
+        "longname": "module:FakeAdaptor~steps",
+        "kind": "function",
+        "scope": "inner",
+        "memberof": "module:FakeAdaptor",
+        "params": []
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                251,
+                406
+            ],
+            "filename": "FakeAdaptor.js",
+            "lineno": 11,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000489",
+                "name": "expandReferences",
+                "type": "FunctionDeclaration",
+                "paramnames": [
+                    "attrs",
+                    "state"
+                ]
+            },
+            "vars": {
+                "": null
+            }
+        },
+        "undocumented": true,
+        "name": "expandReferences",
+        "longname": "module:FakeAdaptor~expandReferences",
+        "kind": "function",
+        "scope": "inner",
+        "memberof": "module:FakeAdaptor",
+        "params": []
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                408,
+                823
+            ],
+            "filename": "FakeAdaptor.js",
+            "lineno": 17,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000512",
+                "name": "create",
+                "type": "FunctionDeclaration",
+                "paramnames": [
+                    "sObject",
+                    "fields"
+                ]
+            },
+            "vars": {
+                "": null
+            }
+        },
+        "undocumented": true,
+        "name": "create",
+        "longname": "module:FakeAdaptor~create",
+        "kind": "function",
+        "scope": "inner",
+        "memberof": "module:FakeAdaptor",
+        "params": []
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                628,
+                660
+            ],
+            "filename": "FakeAdaptor.js",
+            "lineno": 25,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000557",
+                "name": "id",
+                "type": "BinaryExpression",
+                "value": ""
+            }
+        },
+        "undocumented": true,
+        "name": "id",
+        "longname": "<anonymous>~id",
+        "kind": "member",
+        "memberof": "<anonymous>",
+        "scope": "inner"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                669,
+                732
+            ],
+            "filename": "FakeAdaptor.js",
+            "lineno": 26,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000567",
+                "name": "result",
+                "type": "ObjectExpression",
+                "value": "{\"sObject\":\"\",\"fields\":\"\",\"id\":\"\"}"
+            }
+        },
+        "undocumented": true,
+        "name": "result",
+        "longname": "<anonymous>~result",
+        "kind": "member",
+        "memberof": "<anonymous>",
+        "scope": "inner"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                679,
+                686
+            ],
+            "filename": "FakeAdaptor.js",
+            "lineno": 26,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000570",
+                "name": "sObject",
+                "type": "Identifier",
+                "value": "sObject"
+            }
+        },
+        "undocumented": true,
+        "name": "sObject",
+        "longname": "<anonymous>~result.sObject",
+        "kind": "member",
+        "memberof": "<anonymous>~result",
+        "scope": "static"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                688,
+                727
+            ],
+            "filename": "FakeAdaptor.js",
+            "lineno": 26,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000572",
+                "name": "fields",
+                "type": "CallExpression",
+                "value": ""
+            }
+        },
+        "undocumented": true,
+        "name": "fields",
+        "longname": "<anonymous>~result.fields",
+        "kind": "member",
+        "memberof": "<anonymous>~result",
+        "scope": "static"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                729,
+                731
+            ],
+            "filename": "FakeAdaptor.js",
+            "lineno": 26,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000577",
+                "name": "id",
+                "type": "Identifier",
+                "value": "id"
+            }
+        },
+        "undocumented": true,
+        "name": "id",
+        "longname": "<anonymous>~result.id",
+        "kind": "member",
+        "memberof": "<anonymous>~result",
+        "scope": "static"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                769,
+                810
+            ],
+            "filename": "FakeAdaptor.js",
+            "lineno": 30,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000583",
+                "name": "references",
+                "type": "ArrayExpression",
+                "value": "[\"result\",\"\"]"
+            }
+        },
+        "undocumented": true,
+        "name": "references",
+        "longname": "module:FakeAdaptor~references",
+        "kind": "member",
+        "scope": "inner",
+        "memberof": "module:FakeAdaptor"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                825,
+                1282
+            ],
+            "filename": "FakeAdaptor.js",
+            "lineno": 36,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000590",
+                "name": "upsert",
+                "type": "FunctionDeclaration",
+                "paramnames": [
+                    "sObject",
+                    "externalId",
+                    "fields"
+                ]
+            },
+            "vars": {
+                "": null
+            }
+        },
+        "undocumented": true,
+        "name": "upsert",
+        "longname": "module:FakeAdaptor~upsert",
+        "kind": "function",
+        "scope": "inner",
+        "memberof": "module:FakeAdaptor",
+        "params": []
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                1087,
+                1119
+            ],
+            "filename": "FakeAdaptor.js",
+            "lineno": 44,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000637",
+                "name": "id",
+                "type": "BinaryExpression",
+                "value": ""
+            }
+        },
+        "undocumented": true,
+        "name": "id",
+        "longname": "<anonymous>~id",
+        "kind": "member",
+        "memberof": "<anonymous>",
+        "scope": "inner"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                1128,
+                1191
+            ],
+            "filename": "FakeAdaptor.js",
+            "lineno": 45,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000647",
+                "name": "result",
+                "type": "ObjectExpression",
+                "value": "{\"sObject\":\"\",\"fields\":\"\",\"id\":\"\"}"
+            }
+        },
+        "undocumented": true,
+        "name": "result",
+        "longname": "<anonymous>~result",
+        "kind": "member",
+        "memberof": "<anonymous>",
+        "scope": "inner"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                1138,
+                1145
+            ],
+            "filename": "FakeAdaptor.js",
+            "lineno": 45,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000650",
+                "name": "sObject",
+                "type": "Identifier",
+                "value": "sObject"
+            }
+        },
+        "undocumented": true,
+        "name": "sObject",
+        "longname": "<anonymous>~result.sObject",
+        "kind": "member",
+        "memberof": "<anonymous>~result",
+        "scope": "static"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                1147,
+                1186
+            ],
+            "filename": "FakeAdaptor.js",
+            "lineno": 45,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000652",
+                "name": "fields",
+                "type": "CallExpression",
+                "value": ""
+            }
+        },
+        "undocumented": true,
+        "name": "fields",
+        "longname": "<anonymous>~result.fields",
+        "kind": "member",
+        "memberof": "<anonymous>~result",
+        "scope": "static"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                1188,
+                1190
+            ],
+            "filename": "FakeAdaptor.js",
+            "lineno": 45,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000657",
+                "name": "id",
+                "type": "Identifier",
+                "value": "id"
+            }
+        },
+        "undocumented": true,
+        "name": "id",
+        "longname": "<anonymous>~result.id",
+        "kind": "member",
+        "memberof": "<anonymous>~result",
+        "scope": "static"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                1228,
+                1269
+            ],
+            "filename": "FakeAdaptor.js",
+            "lineno": 49,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000663",
+                "name": "references",
+                "type": "ArrayExpression",
+                "value": "[\"result\",\"\"]"
+            }
+        },
+        "undocumented": true,
+        "name": "references",
+        "longname": "module:FakeAdaptor~references",
+        "kind": "member",
+        "scope": "inner",
+        "memberof": "module:FakeAdaptor"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                1291,
+                1380
+            ],
+            "filename": "FakeAdaptor.js",
+            "lineno": 56,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000671",
+                "name": "reference",
+                "type": "CallExpression",
+                "value": ""
+            }
+        },
+        "undocumented": true,
+        "name": "reference",
+        "longname": "module:FakeAdaptor~reference",
+        "kind": "constant",
+        "scope": "inner",
+        "memberof": "module:FakeAdaptor"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                1329,
+                1339
+            ],
+            "filename": "FakeAdaptor.js",
+            "lineno": 56,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000678",
+                "name": "references",
+                "type": "Identifier",
+                "value": "references"
+            }
+        },
+        "undocumented": true,
+        "name": "references",
+        "longname": "module:FakeAdaptor~references",
+        "kind": "member",
+        "scope": "inner",
+        "memberof": "module:FakeAdaptor"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                1383,
+                2042
+            ],
+            "filename": "FakeAdaptor.js",
+            "lineno": 61,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000687",
+                "name": "execute",
+                "type": "FunctionDeclaration",
+                "paramnames": [
+                    "operations"
+                ]
+            },
+            "vars": {
+                "initialState": "module:FakeAdaptor~execute~initialState",
+                "": null
+            }
+        },
+        "undocumented": true,
+        "name": "execute",
+        "longname": "module:FakeAdaptor~execute",
+        "kind": "function",
+        "scope": "inner",
+        "memberof": "module:FakeAdaptor",
+        "params": []
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                1426,
+                1581
+            ],
+            "filename": "FakeAdaptor.js",
+            "lineno": 63,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000693",
+                "name": "initialState",
+                "type": "ObjectExpression",
+                "value": "{\"logger\":\"\",\"references\":\"\",\"data\":null}"
+            }
+        },
+        "undocumented": true,
+        "name": "initialState",
+        "longname": "module:FakeAdaptor~execute~initialState",
+        "kind": "constant",
+        "memberof": "module:FakeAdaptor~execute",
+        "scope": "inner"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                1447,
+                1541
+            ],
+            "filename": "FakeAdaptor.js",
+            "lineno": 64,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000696",
+                "name": "logger",
+                "type": "ObjectExpression",
+                "value": "{\"info\":\"\",\"debug\":\"\"}"
+            }
+        },
+        "undocumented": true,
+        "name": "logger",
+        "longname": "module:FakeAdaptor~execute~initialState.logger",
+        "kind": "member",
+        "memberof": "module:FakeAdaptor~execute~initialState",
+        "scope": "static"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                1463,
+                1495
+            ],
+            "filename": "FakeAdaptor.js",
+            "lineno": 65,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000698",
+                "name": "info",
+                "type": "CallExpression",
+                "value": ""
+            }
+        },
+        "undocumented": true,
+        "name": "info",
+        "longname": "module:FakeAdaptor~execute~initialState.logger.info",
+        "kind": "member",
+        "memberof": "module:FakeAdaptor~execute~initialState.logger",
+        "scope": "static"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                1503,
+                1535
+            ],
+            "filename": "FakeAdaptor.js",
+            "lineno": 66,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000706",
+                "name": "debug",
+                "type": "CallExpression",
+                "value": ""
+            }
+        },
+        "undocumented": true,
+        "name": "debug",
+        "longname": "module:FakeAdaptor~execute~initialState.logger.debug",
+        "kind": "member",
+        "memberof": "module:FakeAdaptor~execute~initialState.logger",
+        "scope": "static"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                1547,
+                1561
+            ],
+            "filename": "FakeAdaptor.js",
+            "lineno": 68,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000714",
+                "name": "references",
+                "type": "ArrayExpression",
+                "value": "[]"
+            }
+        },
+        "undocumented": true,
+        "name": "references",
+        "longname": "module:FakeAdaptor~execute~initialState.references",
+        "kind": "member",
+        "memberof": "module:FakeAdaptor~execute~initialState",
+        "scope": "static"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                1567,
+                1577
+            ],
+            "filename": "FakeAdaptor.js",
+            "lineno": 69,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000716",
+                "name": "data",
+                "type": "Literal",
+                "value": null
+            }
+        },
+        "undocumented": true,
+        "name": "data",
+        "longname": "module:FakeAdaptor~execute~initialState.data",
+        "kind": "member",
+        "memberof": "module:FakeAdaptor~execute~initialState",
+        "scope": "static"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                2056,
+                2062
+            ],
+            "filename": "FakeAdaptor.js",
+            "lineno": 92,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000786",
+                "name": "exports.create",
+                "type": "Identifier"
+            }
+        },
+        "undocumented": true,
+        "name": "create",
+        "longname": "module:FakeAdaptor.create",
+        "kind": "member",
+        "memberof": "module:FakeAdaptor",
+        "scope": "static"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                2066,
+                2073
+            ],
+            "filename": "FakeAdaptor.js",
+            "lineno": 93,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000788",
+                "name": "exports.execute",
+                "type": "Identifier"
+            }
+        },
+        "undocumented": true,
+        "name": "execute",
+        "longname": "module:FakeAdaptor.execute",
+        "kind": "member",
+        "memberof": "module:FakeAdaptor",
+        "scope": "static"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                2077,
+                2086
+            ],
+            "filename": "FakeAdaptor.js",
+            "lineno": 94,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000790",
+                "name": "exports.reference",
+                "type": "Identifier"
+            }
+        },
+        "undocumented": true,
+        "name": "reference",
+        "longname": "module:FakeAdaptor.reference",
+        "kind": "member",
+        "memberof": "module:FakeAdaptor",
+        "scope": "static"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                2090,
+                2095
+            ],
+            "filename": "FakeAdaptor.js",
+            "lineno": 95,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000792",
+                "name": "exports.steps",
+                "type": "Identifier"
+            }
+        },
+        "undocumented": true,
+        "name": "steps",
+        "longname": "module:FakeAdaptor.steps",
+        "kind": "member",
+        "memberof": "module:FakeAdaptor",
+        "scope": "static"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                2099,
+                2105
+            ],
+            "filename": "FakeAdaptor.js",
+            "lineno": 96,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000794",
+                "name": "exports.upsert",
+                "type": "Identifier"
+            }
+        },
+        "undocumented": true,
+        "name": "upsert",
+        "longname": "module:FakeAdaptor.upsert",
+        "kind": "member",
+        "memberof": "module:FakeAdaptor",
+        "scope": "static"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                2118,
+                2124
+            ],
+            "filename": "FakeAdaptor.js",
+            "lineno": 99,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000797",
+                "name": "exports.lookup",
+                "type": "Identifier"
+            }
+        },
+        "undocumented": true,
+        "name": "lookup",
+        "longname": "module:FakeAdaptor.lookup",
+        "kind": "member",
+        "memberof": "module:FakeAdaptor",
+        "scope": "static"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                2126,
+                2138
+            ],
+            "filename": "FakeAdaptor.js",
+            "lineno": 99,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000799",
+                "name": "exports.relationship",
+                "type": "Identifier"
+            }
+        },
+        "undocumented": true,
+        "name": "relationship",
+        "longname": "module:FakeAdaptor.relationship",
+        "kind": "member",
+        "memberof": "module:FakeAdaptor",
+        "scope": "static"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                2177,
+                2181
+            ],
+            "filename": "FakeAdaptor.js",
+            "lineno": 102,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000803",
+                "name": "exports.each",
+                "type": "Identifier"
+            }
+        },
+        "undocumented": true,
+        "name": "each",
+        "longname": "module:FakeAdaptor.each",
+        "kind": "member",
+        "memberof": "module:FakeAdaptor",
+        "scope": "static"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                2183,
+                2187
+            ],
+            "filename": "FakeAdaptor.js",
+            "lineno": 102,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000805",
+                "name": "exports.join",
+                "type": "Identifier"
+            }
+        },
+        "undocumented": true,
+        "name": "join",
+        "longname": "module:FakeAdaptor.join",
+        "kind": "member",
+        "memberof": "module:FakeAdaptor",
+        "scope": "static"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                2189,
+                2195
+            ],
+            "filename": "FakeAdaptor.js",
+            "lineno": 102,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000807",
+                "name": "exports.fields",
+                "type": "Identifier"
+            }
+        },
+        "undocumented": true,
+        "name": "fields",
+        "longname": "module:FakeAdaptor.fields",
+        "kind": "member",
+        "memberof": "module:FakeAdaptor",
+        "scope": "static"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                2197,
+                2202
+            ],
+            "filename": "FakeAdaptor.js",
+            "lineno": 102,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000809",
+                "name": "exports.field",
+                "type": "Identifier"
+            }
+        },
+        "undocumented": true,
+        "name": "field",
+        "longname": "module:FakeAdaptor.field",
+        "kind": "member",
+        "memberof": "module:FakeAdaptor",
+        "scope": "static"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                2204,
+                2210
+            ],
+            "filename": "FakeAdaptor.js",
+            "lineno": 102,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000811",
+                "name": "exports.source",
+                "type": "Identifier"
+            }
+        },
+        "undocumented": true,
+        "name": "source",
+        "longname": "module:FakeAdaptor.source",
+        "kind": "member",
+        "memberof": "module:FakeAdaptor",
+        "scope": "static"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                2212,
+                2223
+            ],
+            "filename": "FakeAdaptor.js",
+            "lineno": 102,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000813",
+                "name": "exports.sourceValue",
+                "type": "Identifier"
+            }
+        },
+        "undocumented": true,
+        "name": "sourceValue",
+        "longname": "module:FakeAdaptor.sourceValue",
+        "kind": "member",
+        "memberof": "module:FakeAdaptor",
+        "scope": "static"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                2225,
+                2228
+            ],
+            "filename": "FakeAdaptor.js",
+            "lineno": 102,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000815",
+                "name": "exports.map",
+                "type": "Identifier"
+            }
+        },
+        "undocumented": true,
+        "name": "map",
+        "longname": "module:FakeAdaptor.map",
+        "kind": "member",
+        "memberof": "module:FakeAdaptor",
+        "scope": "static"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                2230,
+                2237
+            ],
+            "filename": "FakeAdaptor.js",
+            "lineno": 102,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000817",
+                "name": "exports.combine",
+                "type": "Identifier"
+            }
+        },
+        "undocumented": true,
+        "name": "combine",
+        "longname": "module:FakeAdaptor.combine",
+        "kind": "member",
+        "memberof": "module:FakeAdaptor",
+        "scope": "static"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                2241,
+                2246
+            ],
+            "filename": "FakeAdaptor.js",
+            "lineno": 103,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000819",
+                "name": "exports.merge",
+                "type": "Identifier"
+            }
+        },
+        "undocumented": true,
+        "name": "merge",
+        "longname": "module:FakeAdaptor.merge",
+        "kind": "member",
+        "memberof": "module:FakeAdaptor",
+        "scope": "static"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                2248,
+                2256
+            ],
+            "filename": "FakeAdaptor.js",
+            "lineno": 103,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000821",
+                "name": "exports.dataPath",
+                "type": "Identifier"
+            }
+        },
+        "undocumented": true,
+        "name": "dataPath",
+        "longname": "module:FakeAdaptor.dataPath",
+        "kind": "member",
+        "memberof": "module:FakeAdaptor",
+        "scope": "static"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                2258,
+                2267
+            ],
+            "filename": "FakeAdaptor.js",
+            "lineno": 103,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000823",
+                "name": "exports.dataValue",
+                "type": "Identifier"
+            }
+        },
+        "undocumented": true,
+        "name": "dataValue",
+        "longname": "module:FakeAdaptor.dataValue",
+        "kind": "member",
+        "memberof": "module:FakeAdaptor",
+        "scope": "static"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                2269,
+                2282
+            ],
+            "filename": "FakeAdaptor.js",
+            "lineno": 103,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000825",
+                "name": "exports.referencePath",
+                "type": "Identifier"
+            }
+        },
+        "undocumented": true,
+        "name": "referencePath",
+        "longname": "module:FakeAdaptor.referencePath",
+        "kind": "member",
+        "memberof": "module:FakeAdaptor",
+        "scope": "static"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                2284,
+                2302
+            ],
+            "filename": "FakeAdaptor.js",
+            "lineno": 103,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000827",
+                "name": "exports.lastReferenceValue",
+                "type": "Identifier"
+            }
+        },
+        "undocumented": true,
+        "name": "lastReferenceValue",
+        "longname": "module:FakeAdaptor.lastReferenceValue",
+        "kind": "member",
+        "memberof": "module:FakeAdaptor",
+        "scope": "static"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                2306,
+                2311
+            ],
+            "filename": "FakeAdaptor.js",
+            "lineno": 104,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000829",
+                "name": "exports.index",
+                "type": "Identifier"
+            }
+        },
+        "undocumented": true,
+        "name": "index",
+        "longname": "module:FakeAdaptor.index",
+        "kind": "member",
+        "memberof": "module:FakeAdaptor",
+        "scope": "static"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                2313,
+                2317
+            ],
+            "filename": "FakeAdaptor.js",
+            "lineno": 104,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000831",
+                "name": "exports.beta",
+                "type": "Identifier"
+            }
+        },
+        "undocumented": true,
+        "name": "beta",
+        "longname": "module:FakeAdaptor.beta",
+        "kind": "member",
+        "memberof": "module:FakeAdaptor",
+        "scope": "static"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                2319,
+                2326
+            ],
+            "filename": "FakeAdaptor.js",
+            "lineno": 104,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000833",
+                "name": "exports.toArray",
+                "type": "Identifier"
+            }
+        },
+        "undocumented": true,
+        "name": "toArray",
+        "longname": "module:FakeAdaptor.toArray",
+        "kind": "member",
+        "memberof": "module:FakeAdaptor",
+        "scope": "static"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                2328,
+                2341
+            ],
+            "filename": "FakeAdaptor.js",
+            "lineno": 104,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000835",
+                "name": "exports.arrayToString",
+                "type": "Identifier"
+            }
+        },
+        "undocumented": true,
+        "name": "arrayToString",
+        "longname": "module:FakeAdaptor.arrayToString",
+        "kind": "member",
+        "memberof": "module:FakeAdaptor",
+        "scope": "static"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                75,
+                98
+            ],
+            "filename": "index.js",
+            "lineno": 4,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000847",
+                "name": "module.exports",
+                "type": "Identifier"
+            }
+        },
+        "undocumented": true,
+        "name": "exports",
+        "longname": "module.exports",
+        "kind": "member",
+        "memberof": "module",
+        "scope": "static"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                108,
+                119
+            ],
+            "filename": "index.js",
+            "lineno": 5,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000850",
+                "name": "exports.FakeAdaptor",
+                "type": "Identifier"
+            }
+        },
+        "undocumented": true,
+        "name": "FakeAdaptor",
+        "longname": "FakeAdaptor",
+        "kind": "member",
+        "scope": "global"
+    },
+    {
+        "comment": "/**\n * Adds a lookup or 'dome insert' to a record.\n * @example <caption>Example</caption>\n * lookup(\"relationship_name__r\", \"externalID on related object\", \"$.path\")\n * @constructor\n * @param {string} relationshipName - `__r` relationship field on the record.\n * @param {string} externalID - Salesforce ExternalID field.\n * @param {string} path - JSONPath to data source.\n * @returns {object}\n */",
+        "meta": {
+            "range": [
+                513,
+                680
+            ],
+            "filename": "sourceHelpers.js",
+            "lineno": 14,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000869",
+                "name": "exports.lookup",
+                "type": "FunctionDeclaration",
+                "paramnames": [
+                    "relationshipName",
+                    "externalId",
+                    "path"
+                ]
+            }
+        },
+        "description": "Adds a lookup or 'dome insert' to a record.",
+        "examples": [
+            "<caption>Example</caption>\nlookup(\"relationship_name__r\", \"externalID on related object\", \"$.path\")"
+        ],
+        "kind": "class",
+        "params": [
+            {
+                "type": {
+                    "names": [
+                        "string"
+                    ]
+                },
+                "description": "`__r` relationship field on the record.",
+                "name": "relationshipName"
+            },
+            {
+                "type": {
+                    "names": [
+                        "string"
+                    ]
+                },
+                "description": "Salesforce ExternalID field.",
+                "name": "externalID"
+            },
+            {
+                "type": {
+                    "names": [
+                        "string"
+                    ]
+                },
+                "description": "JSONPath to data source.",
+                "name": "path"
+            }
+        ],
+        "returns": [
+            {
+                "type": {
+                    "names": [
+                        "object"
+                    ]
+                }
+            }
+        ],
+        "name": "lookup",
+        "longname": "lookup",
+        "scope": "global"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                520,
+                680
+            ],
+            "filename": "sourceHelpers.js",
+            "lineno": 14,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000870",
+                "name": "lookup",
+                "type": "FunctionDeclaration",
+                "paramnames": [
+                    "relationshipName",
+                    "externalId",
+                    "path"
+                ]
+            },
+            "vars": {
+                "": null
+            }
+        },
+        "undocumented": true,
+        "name": "lookup",
+        "longname": "lookup",
+        "kind": "function",
+        "scope": "global",
+        "params": []
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                633,
+                671
+            ],
+            "filename": "sourceHelpers.js",
+            "lineno": 16,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000885",
+                "name": "externalId",
+                "type": "CallExpression",
+                "value": ""
+            }
+        },
+        "undocumented": true,
+        "name": "externalId",
+        "longname": "externalId",
+        "kind": "member",
+        "scope": "global"
+    },
+    {
+        "comment": "/**\n * Adds a lookup or 'dome insert' to a record.\n * @example <caption>Data Sourced Value</caption>\n * relationship(\"relationship_name__r\", \"externalID on related object\", dataSource(\"path\"))\n * @example <caption>Fixed Value</caption>\n * relationship(\"relationship_name__r\", \"externalID on related object\", \"hello world\") \n * @constructor\n * @param {string} relationshipName - `__r` relationship field on the record.\n * @param {string} externalID - Salesforce ExternalID field.\n * @param {string} dataSource - resolvable source.\n * @returns {object}\n */",
+        "meta": {
+            "range": [
+                1238,
+                1501
+            ],
+            "filename": "sourceHelpers.js",
+            "lineno": 33,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000891",
+                "name": "exports.relationship",
+                "type": "FunctionDeclaration",
+                "paramnames": [
+                    "relationshipName",
+                    "externalId",
+                    "dataSource"
+                ]
+            }
+        },
+        "description": "Adds a lookup or 'dome insert' to a record.",
+        "examples": [
+            "<caption>Data Sourced Value</caption>\nrelationship(\"relationship_name__r\", \"externalID on related object\", dataSource(\"path\"))",
+            "<caption>Fixed Value</caption>\nrelationship(\"relationship_name__r\", \"externalID on related object\", \"hello world\") "
+        ],
+        "kind": "class",
+        "params": [
+            {
+                "type": {
+                    "names": [
+                        "string"
+                    ]
+                },
+                "description": "`__r` relationship field on the record.",
+                "name": "relationshipName"
+            },
+            {
+                "type": {
+                    "names": [
+                        "string"
+                    ]
+                },
+                "description": "Salesforce ExternalID field.",
+                "name": "externalID"
+            },
+            {
+                "type": {
+                    "names": [
+                        "string"
+                    ]
+                },
+                "description": "resolvable source.",
+                "name": "dataSource"
+            }
+        ],
+        "returns": [
+            {
+                "type": {
+                    "names": [
+                        "object"
+                    ]
+                }
+            }
+        ],
+        "name": "relationship",
+        "longname": "relationship",
+        "scope": "global"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                1245,
+                1501
+            ],
+            "filename": "sourceHelpers.js",
+            "lineno": 33,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000892",
+                "name": "relationship",
+                "type": "FunctionDeclaration",
+                "paramnames": [
+                    "relationshipName",
+                    "externalId",
+                    "dataSource"
+                ]
+            },
+            "vars": {
+                "": null
+            }
+        },
+        "undocumented": true,
+        "name": "relationship",
+        "longname": "relationship",
+        "kind": "function",
+        "scope": "global",
+        "params": []
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                1415,
+                1446
+            ],
+            "filename": "sourceHelpers.js",
+            "lineno": 36,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000913",
+                "name": "externalId",
+                "type": "CallExpression",
+                "value": ""
+            }
+        },
+        "undocumented": true,
+        "name": "externalId",
+        "longname": "externalId",
+        "kind": "member",
+        "scope": "global"
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                1468,
+                1492
+            ],
+            "filename": "sourceHelpers.js",
+            "lineno": 38,
+            "path": "/Users/stuart/Sourcecode/openfn/language-salesforce/src",
+            "code": {
+                "id": "astnode100000919",
+                "name": "externalId",
+                "type": "Identifier",
+                "value": "dataSource"
+            }
+        },
+        "undocumented": true,
+        "name": "externalId",
+        "longname": "externalId",
+        "kind": "member",
+        "scope": "global"
+    },
+    {
+        "kind": "package",
+        "name": "language-salesforce",
+        "longname": "package:language-salesforce",
+        "author": "Open Function Group",
+        "dependencies": {
+            "JSONPath": "^0.10.0",
+            "jsforce": "1.5.1",
+            "language-common": "github:openfn/language-common#v0.0.4",
+            "lodash-fp": "^0.10.2",
+            "mustache": "^2.2.0",
+            "yargs": "^3.30.0"
+        },
+        "description": "Salesforce Language Pack for OpenFn",
+        "devDependencies": {
+            "assertion-error": "^1.0.1",
+            "babel": "^6.0.15",
+            "babel-cli": "^6.1.2",
+            "babel-core": "^6.1.2",
+            "babel-plugin-transform-flow-strip-types": "^6.0.14",
+            "babel-preset-es2015": "^6.1.2",
+            "babel-preset-stage-0": "^6.3.13",
+            "chai": "^3.4.0",
+            "deep-eql": "^0.1.3",
+            "mocha": "^2.3.3",
+            "sinon": "^1.17.2",
+            "type-detect": "^1.0.0"
+        },
+        "files": [
+            "/Users/stuart/Sourcecode/openfn/language-salesforce/src/Adaptor.js",
+            "/Users/stuart/Sourcecode/openfn/language-salesforce/src/FakeAdaptor.js",
+            "/Users/stuart/Sourcecode/openfn/language-salesforce/src/index.js",
+            "/Users/stuart/Sourcecode/openfn/language-salesforce/src/sourceHelpers.js"
+        ],
+        "licenses": [
+            {
+                "type": "LGPLv3"
+            }
+        ],
+        "main": "lib/index.js",
+        "version": "0.1.4"
+    }
+]
