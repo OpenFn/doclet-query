@@ -1,5 +1,5 @@
 const { assert } = require('chai');
-const { createTree, membersForFile } = require('../src');
+const { createTree, membersForFile, ModuleDoclet } = require('../src');
 const fixture = require('./fixture.json');
 const _ = require('lodash');
 
@@ -14,9 +14,14 @@ describe("createTree", function() {
   })
 
   it("registers the packages modules", function() {
-    assert.lengthOf(this.tree[0].modules, 4, "package has n modules")
     assert.property(this.tree[0].modules, "Adaptor")
     assert.property(this.tree[0].modules, "FakeAdaptor")
+  })
+
+  it("registers the function members of a module", function() {
+    const adaptorExports = this.tree[0].modules.Adaptor.exports
+
+    assert.property(adaptorExports, "create")
   })
 })
 
@@ -36,3 +41,13 @@ describe("membersForFile", function() {
   })
 })
 
+describe("ModuleDoclet", function() {
+  it("returns an object of keyed members for a given module", function() {
+    const doclet = fixture[0]
+    const moduleDoclet = ModuleDoclet(null, doclet, fixture)
+
+    assert(moduleDoclet.doclet === doclet, "does not contain original doclet")
+    assert.lengthOf(moduleDoclet.members, 52, "does not contain correct members")
+    assert.property(moduleDoclet.exports, "create", "does not contain correct exports")
+  })
+})

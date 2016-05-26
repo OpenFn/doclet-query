@@ -41,9 +41,53 @@ function modulesForFile(doclets, filePath) {
 }
 
 /**
- * Creates a tree structure out of a JSDoc's doclet format.
+ * Determines if a doclet is an export member.
+ *
+ * <pre><code>
+ * meta: { 
+ *   code: { name: "exports.foo" },
+ *   ...
+ * }
+ * </code></pre>
+ * @function
+ * @param {object} doclet
+ * @returns {Boolean}
+ */
+function isExport(doclet) {
+  try {
+    return /exports\./.test(doclet.meta.code.name)
+  } catch (e) {
+    return false
+  }
+}
+
+/**
+ * Creates a ModuleDoclet instance.
  *
  * @function
+ * @param {object|null} packageDoclet - The parent package doclet
+ * @param {object} doclet - module doclet
+ * @param {Object[]|null} doclets - any/all doclets to provide child member info
+ * @returns {object}
+ */
+function ModuleDoclet(packageDoclet, doclet, doclets) {
+  const members = _.filter(doclets, { memberof: doclet.longname })
+  const exports = members.filter(isExport).reduce((acc, member) => {
+    return _.merge(acc, { [member.name]: member })
+  }, {})
+
+  return {
+    doclet,
+    members,
+    package: packageDoclet,
+    exports
+  }
+}
+
+/**
+ * Creates a tree structure out of a JSDoc's doclet format.
+ *
+ * @static createTree
  * @param {Object[]} doclets - List of Doclets
  */
 function createTree(doclets) {
@@ -53,7 +97,7 @@ function createTree(doclets) {
         const fileModule = modulesForFile(doclets, filePath)[0]
         
         return (
-          fileModule ?  _.merge(acc, { [fileModule.name]: fileModule }) : acc
+          fileModule ?  _.merge(acc, { [fileModule.name]: ModuleDoclet(p, fileModule, doclets) }) : acc
         )
 
       }, {})
@@ -64,5 +108,6 @@ function createTree(doclets) {
 
 module.exports = {
   createTree,
-  membersForFile
+  membersForFile,
+  ModuleDoclet
 };
