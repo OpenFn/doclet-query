@@ -1,5 +1,5 @@
 const { assert } = require('chai');
-const { createTree, membersForFile, ModuleDoclet } = require('../src');
+const { createTree, membersForFile, ModuleDoclet, PackageDoclet } = require('../src');
 const fixture = require('./fixture.json');
 const _ = require('lodash');
 
@@ -9,17 +9,22 @@ describe("createTree", function() {
   })
 
   it("registers the package", function() {
-    assert(this.tree[0].name === 'language-salesforce', "first object is package")
-    assert(this.tree[0].kind === 'package', "first object is package")
+    const packageNode = this.tree[ "language-salesforce" ]
+
+    assert(packageNode.doclet.name === 'language-salesforce', "first object is package")
+    assert(packageNode.doclet.kind === 'package', "first object is package")
   })
 
   it("registers the packages modules", function() {
-    assert.property(this.tree[0].modules, "Adaptor")
-    assert.property(this.tree[0].modules, "FakeAdaptor")
+    const packageNode = this.tree[ "language-salesforce" ]
+
+    assert.property(packageNode.modules, "Adaptor")
+    assert.property(packageNode.modules, "FakeAdaptor")
   })
 
   it("registers the function members of a module", function() {
-    const adaptorExports = this.tree[0].modules.Adaptor.exports
+    const packageNode = this.tree[ "language-salesforce" ]
+    const adaptorExports = packageNode.modules.Adaptor.exports
 
     assert.property(adaptorExports, "create")
   })
@@ -49,5 +54,15 @@ describe("ModuleDoclet", function() {
     assert(moduleDoclet.doclet === doclet, "does not contain original doclet")
     assert.lengthOf(moduleDoclet.members, 52, "does not contain correct members")
     assert.property(moduleDoclet.exports, "create", "does not contain correct exports")
+  })
+})
+
+describe("PackageDoclet", function() {
+  it("~modules returns all modules for that package", function() {
+    const doclet = fixture[fixture.length-1]
+    const packageDoclet = PackageDoclet(doclet, fixture)
+
+    assert(packageDoclet.doclet === doclet, "does not contain original doclet")
+    assert.lengthOf(Object.keys(packageDoclet.modules), 2, "does not contain correct modules")
   })
 })

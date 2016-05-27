@@ -85,29 +85,46 @@ function ModuleDoclet(packageDoclet, doclet, doclets) {
 }
 
 /**
+ * Creates a PackageDoclet instance.
+ *
+ * @function
+ * @param {object|null} doclet - package doclet
+ * @param {Object[]|null} doclets - any/all doclets to provide child member info
+ * @returns {object}
+ */
+function PackageDoclet(doclet, doclets) {
+
+  const modules = doclet.files
+    .reduce(( acc, filePath ) => {
+      const fileModule = modulesForFile(doclets, filePath)[0]
+
+      return (
+        fileModule ?  _.merge(acc, { [fileModule.name]: ModuleDoclet(doclet, fileModule, doclets) }) : acc
+      )
+
+    }, {})
+
+  return {
+    doclet,
+    modules
+  }
+}
+
+/**
  * Creates a tree structure out of a JSDoc's doclet format.
  *
  * @static createTree
  * @param {Object[]} doclets - List of Doclets
  */
 function createTree(doclets) {
-  return filterPackages(doclets).map(function(p) {
-    const packageModules = p.files
-      .reduce(( acc, filePath ) => {
-        const fileModule = modulesForFile(doclets, filePath)[0]
-        
-        return (
-          fileModule ?  _.merge(acc, { [fileModule.name]: ModuleDoclet(p, fileModule, doclets) }) : acc
-        )
-
-      }, {})
-
-    return _.merge(p, { modules: packageModules })
-  })
+  return filterPackages(doclets).reduce((acc,p) => {
+    return _.merge(acc, { [p.name]: PackageDoclet(p, doclets) })
+  },{})
 }
 
 module.exports = {
   createTree,
   membersForFile,
-  ModuleDoclet
+  ModuleDoclet,
+  PackageDoclet
 };
