@@ -1,5 +1,5 @@
-jsdoc-query
-===========
+doclet-query
+============
 
 JSDoc Metadata Query Tools
 
@@ -31,7 +31,7 @@ Usage
 2. Using the jsdoc-query API call `createTree` with the doclets data.  
 ```js
 const doclets = require('./doclets.json');
-const { createTree } = require('jsdoc-query');
+const { createTree } = require('doclet-query');
 const tree = createTree(doclets);
 ```
 
