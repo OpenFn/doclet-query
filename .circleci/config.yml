@@ -7,6 +7,6 @@ workflows:
   matrix-tests:
     jobs:
       - node/test:
-          version: 14.16
+          version: "14.16"
       - node/test:
-          version: 12.22
+          version: "12.22"
