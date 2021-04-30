@@ -1,6 +1,6 @@
 {
   "name": "@openfn/doclet-query",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "JSDoc Metadata Query Tools",
   "main": "src/index.js",
   "scripts": {
