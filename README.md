@@ -1,6 +1,8 @@
 doclet-query
 ============
 
+[![CircleCI](https://circleci.com/gh/OpenFn/doclet-query.svg?style=svg)](https://circleci.com/gh/OpenFn/doclet-query)
+
 JSDoc Metadata Query Tools
 
 **EXPERIMENTAL**
